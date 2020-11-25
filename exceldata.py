@@ -1,5 +1,4 @@
 import xlrd
-import xlwt
 from pyecharts.charts import Geo
 # 导入配置项
 from pyecharts import options as opts
@@ -8,16 +7,12 @@ from pyecharts.globals import ChartType, SymbolType
 
 # import matplotlib
 
-
 path = '广西地市区内迁徙数据'
 
 
 def in_data(city, date_number):
 	workbook = xlrd.open_workbook(f'.\\{path}\\{city}-迁入来源地规模指数.xlsx')
 	sheet = workbook.sheet_by_index(0)
-	# rows = sheet.nrows
-	# cols = sheet.ncols
-	# print(rows, cols)
 	city_od_list = []
 	city_od_values = []
 	a = 0
@@ -42,7 +37,7 @@ def in_data(city, date_number):
 	# 不显示标签
 	geo.set_series_opts(label_opts=opts.LabelOpts(is_show=False))
 	# 设置图标标题，visualmap_opts=opts.VisualMapOpts()为左下角的视觉映射配置项
-	geo.set_global_opts(visualmap_opts=opts.VisualMapOpts(), title_opts=opts.TitleOpts(title="广西地市迁徙数据"))
+	geo.set_global_opts(visualmap_opts=opts.VisualMapOpts(), title_opts=opts.TitleOpts(title=f"{city}迁入数据"))
 	# 直接在notebook里显示图表
 	geo.render_notebook()
 	# 生成html文件，可传入位置参数
@@ -52,9 +47,6 @@ def in_data(city, date_number):
 def out_data(city, date_number):
 	workbook = xlrd.open_workbook(f'.\\{path}\\{city}-迁出目的地规模指数.xlsx')
 	sheet = workbook.sheet_by_index(0)
-	# rows = sheet.nrows
-	# cols = sheet.ncols
-	# print(rows, cols)
 	city_od_list = []
 	city_od_values = []
 	a = 0
@@ -79,7 +71,7 @@ def out_data(city, date_number):
 	# 不显示标签
 	geo.set_series_opts(label_opts=opts.LabelOpts(is_show=False))
 	# 设置图标标题，visualmap_opts=opts.VisualMapOpts()为左下角的视觉映射配置项
-	geo.set_global_opts(visualmap_opts=opts.VisualMapOpts(), title_opts=opts.TitleOpts(title="广西地市迁徙数据"))
+	geo.set_global_opts(visualmap_opts=opts.VisualMapOpts(), title_opts=opts.TitleOpts(title=f"{city}迁出数据"))
 	# 直接在notebook里显示图表
 	geo.render_notebook()
 	# 生成html文件，可传入位置参数
