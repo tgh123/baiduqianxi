@@ -71,11 +71,10 @@ def in_data(date_number):
 	# 直接在notebook里显示图表
 	geo.render_notebook()
 	# 生成html文件，可传入位置参数
-	# geo.render(f".\\in_od\\{city}-2020.10.{date_number}迁入OD图.html")
-	geo.render(f".\\in_od\\广西-2020.10.{date_number}迁出OD图.html")
+	geo.render(f".\\in_od\\广西-2020.10.{date_number}迁入OD图.html")
 
 
-def out_data(city, date_number):
+def out_data(date_number):
 	city_list = (
 		'南宁市',
 		'柳州市',
@@ -126,7 +125,7 @@ def out_data(city, date_number):
 	geo.add("%", os_values, type_=ChartType.EFFECT_SCATTER)
 	# 添加流向，type_设置为LINES，涟漪配置为箭头，提供的标记类型包括 'circle', 'rect', 'roundRect', 'triangle',
 	# 'diamond', 'pin', 'arrow', 'none'
-	geo.add("迁入城市", od_list, type_=ChartType.LINES,
+	geo.add("迁出城市", od_list, type_=ChartType.LINES,
 	        effect_opts=opts.EffectOpts(symbol=SymbolType.ARROW, symbol_size=5, color="yellow"),
 	        linestyle_opts=opts.LineStyleOpts(curve=0.2), is_large=True)
 	# 不显示标签
