@@ -4,10 +4,6 @@
 
 # IntelliJ project files
 .idea
-广西全国地市迁徙数据/
-广西地市区内迁徙数据/
-apache-echarts-4.9.0-incubating-src.zip/
-apache-echarts-4.9.0-incubating-src
 *.iml
 out
 gen
@@ -16,7 +12,9 @@ gen
 __pycache__/
 *.py[cod]
 *$py.class
-
+gx.html
+testod.py
+pro.html
 # C extensions
 *.so
 
